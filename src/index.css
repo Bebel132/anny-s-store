@@ -6,7 +6,12 @@
   --color-black: #000000ff;
   --color-snow: #fff9fbff;
 }
+
 body {
   padding: 0;
   margin: 0;
+}
+
+button {
+  transition: .2s;
 }

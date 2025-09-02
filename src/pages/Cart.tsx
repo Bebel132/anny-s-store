@@ -49,9 +49,9 @@ const Cart = () => {
                             <div className="w-full flex justify-between items-center">
                                 <p className="text-gray-600">R${item.Product.Price}</p>
                                 <div className="flex items-center">
-                                    <button className="border px-1 border-gray-400 cursor-pointer" onClick={() => handleCartChangePrice("decrease", item)}>&lt;</button>
-                                    <span className="border px-2 border-gray-400 cursor-default">{item.Quantity}</span>
-                                    <button className="border px-1 border-gray-400 cursor-pointer" onClick={() => handleCartChangePrice("increase", item)}>&gt;</button>
+                                    <button className="border px-1 bg-emerald-700 text-snow hover:bg-emerald cursor-pointer" onClick={() => handleCartChangePrice("decrease", item)}>&lt;</button>
+                                    <span className="px-2 cursor-default">{item.Quantity}</span>
+                                    <button className="border px-1 bg-emerald-700 text-snow hover:bg-emerald cursor-pointer" onClick={() => handleCartChangePrice("increase", item)}>&gt;</button>
                                 </div>
                             </div>
                         </div>

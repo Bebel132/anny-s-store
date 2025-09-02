@@ -2,5 +2,6 @@ export default {
     login: "/login",
     signin: "/signin",
     home: "/",
-    cart: "/cart"
+    cart: "/cart",
+    profile: "/profile"
 }

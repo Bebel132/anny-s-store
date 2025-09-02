@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Signin from "../pages/Signin";
 import Cart from "../pages/Cart";
+import Profile from "../pages/Profile";
 
 const Navigation: React.FC = () => (
     <Routes>
@@ -12,6 +13,7 @@ const Navigation: React.FC = () => (
         <Route path={pagesMap.signin} element={<Signin />} />
         <Route path={pagesMap.home} element={<Home />} />
         <Route path={pagesMap.cart} element={<Cart />} />
+        <Route path={pagesMap.profile} element={<Profile />} />
     </Routes>
 )
 
