@@ -7,6 +7,7 @@ import { cartService } from "../services/cart";
 import type Cart from "../types/cart";
 import { useNavigate } from "react-router";
 import pagesMap from "../routes/pagesMap";
+import { useToast } from "../hooks/useToast";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -19,6 +20,7 @@ const Home = () => {
   const [openCategories, setOpenCategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const categories = ["chaveiros", "bolsas", "Amigurumi"];
 
@@ -96,6 +98,7 @@ const Home = () => {
       Quantity: 1,
     };
     await cartService.post(payload);
+    showToast("Produto adicionado!", "success");
   };
 
   const handleSelectCategory = (category: string) => {
@@ -121,7 +124,7 @@ const Home = () => {
         <div className="flex gap-4">
 
           <div className="flex flex-col h-full w-[230px]">
-            <button className={` p-2 bg-teal text-snow font-semibold ${openCategories ? "rounded-t-lg bg-teal-700" : "rounded-lg hover:bg-teal-700"}`} onClick={() => setOpenCategories(!openCategories)}>
+            <button className={`p-2 bg-green text-snow font-semibold ${openCategories ? "rounded-t-lg" : "rounded-lg"}`} onClick={() => setOpenCategories(!openCategories)}>
               categorias &nbsp; {openCategories ? "▼" : "▲"}
             </button>
             {openCategories && categories.map((category, i) => (
@@ -132,7 +135,7 @@ const Home = () => {
                   items-center 
                   p-2 
                   cursor-pointer 
-                  ${selectedCategory === category ? "bg-teal-700 text-snow" : "hover:bg-emerald-300"}
+                  ${selectedCategory === category ? "bg-green border-1 border-green text-snow" : " border-1 border-snow hover:border-green"}
                   ${i === categories.length - 1 ? "rounded-b-xl" : ""}
                 `} 
                 key={category} 
@@ -143,9 +146,9 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-10 justify-center items-center w-full">
+          <div className="grid grid-cols-3 gap-3 justify-center items-center w-full">
             {loading ? <p>Loading...</p> : products.map((product) => (
-              <div key={product.Id} className="w-full m-auto">
+              <div key={product.Id} className="w-full m-auto duration-150 p-4 rounded hover:-translate-y-1 hover:shadow-xl">
                 <div
                   className={`w-full h-[250px] bg-cover bg-position-[center_top_-2rem] rounded-xl`}
                   style={{ backgroundImage: `url(${product.File})` }}
@@ -155,7 +158,7 @@ const Home = () => {
                   <p className="text-gray-600">R${product.Price}</p>
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="bg-emerald-500 text-white p-2 rounded cursor-pointer hover:bg-emerald-600"
+                    className="bg-coral border-1 border-coral text-white p-2 rounded cursor-pointer hover:bg-snow hover:text-coral"
                   >
                     Adicionar ao Carrinho
                   </button>
@@ -166,7 +169,7 @@ const Home = () => {
         </div>
           <div className="flex justify-center items-center gap-5 w-full pb-5">
             <button
-              className="bg-teal-400 text-white px-2 py-0.5 rounded cursor-pointer hover:bg-teal disabled:opacity-50 disabled:hover:bg-teal-400 disabled:cursor-not-allowed"
+              className="bg-green text-white px-2 py-0.5 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentSkip === 0}
               onClick={() => {
                 const newSkip = currentSkip - 6;
@@ -180,7 +183,7 @@ const Home = () => {
               {currentCount} de {totalCount}
             </span>
             <button
-              className="bg-teal-400 text-white px-2 py-0.5 rounded cursor-pointer hover:bg-teal disabled:opacity-50 disabled:hover:bg-teal-400 disabled:cursor-not-allowed"
+              className="bg-green text-white px-2 py-0.5 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentSkip + 6 >= totalCount}
               onClick={() => {
                 const newSkip = currentSkip + 6;

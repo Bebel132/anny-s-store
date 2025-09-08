@@ -2,7 +2,7 @@ import api from "./api"
 
 export const authService = {
     LogIn: (payload: any) => 
-        api.post("/login?useCookies=true", payload).then(res => res.data),
+        api.post("/api/User/Login?useCookies=true", payload).then(res => res.data),
     SignOut: () =>
         api.post("/api/User/Logout").then(res => res.data),
     SignIn: (payload: any) =>

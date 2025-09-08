@@ -13,7 +13,7 @@ const Menu = ({ selected }: MenuProps) => {
   ];
 
   return (
-    <div className="bg-emerald w-[95%] flex row mx-auto rounded-b-xl justify-between">
+    <div className="bg-green w-[95%] flex row mx-auto rounded-b-xl justify-between">
       <div className="flex">
           {menuOptions.map((option) => (
             <button
@@ -27,7 +27,7 @@ const Menu = ({ selected }: MenuProps) => {
                 flex 
                 font-bold 
                 cursor-pointer
-                ${selected === option.value ? "bg-teal underline" : "hover:bg-teal-500"}
+                ${selected === option.value ? "bg-coral underline" : "hover:bg-snow hover:text-green border-1 border-green"}
                 ${option === menuOptions[0] ? "rounded-bl-xl" : ""}
               `}
               onClick={() => navigate(option.link)}
@@ -43,8 +43,8 @@ const Menu = ({ selected }: MenuProps) => {
             h-15 
             justify-center 
             items-center 
-            flex 
-            ${selected === "profile" ? "bg-teal underline" : "hover:bg-teal-500"}
+            flex
+            ${selected === "profile" ? "bg-coral underline" : "hover:bg-snow hover:text-green border-1 border-green"}
             font-bold 
             rounded-br-xl
             cursor-pointer`}
