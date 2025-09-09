@@ -13,14 +13,15 @@ const Menu = ({ selected }: MenuProps) => {
   ];
 
   return (
-    <div className="bg-green w-[95%] flex row mx-auto rounded-b-xl justify-between">
+    <div className="bg-green w-full lg:w-[95%] flex row mx-auto rounded-b-xl justify-between">
       <div className="flex">
           {menuOptions.map((option) => (
             <button
               key={option.value}
               className={`
                 text-snow 
-                w-40 
+                md:w-40
+                w-25
                 h-15 
                 justify-center 
                 items-center 
@@ -38,8 +39,9 @@ const Menu = ({ selected }: MenuProps) => {
       </div>
         <button 
           className={`
-            text-snow 
-            w-40 
+            text-snow
+            md:w-40
+            w-25
             h-15 
             justify-center 
             items-center 
