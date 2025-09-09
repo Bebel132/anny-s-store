@@ -2,14 +2,17 @@ import { BrowserRouter } from "react-router"
 import Navigation from "./routes"
 import { AuthProvider } from "./contexts/AuthContext"
 import { ToastProvider } from "./contexts/ToastContext"
+import { ProfileProvider } from "./contexts/ProfileContext"
 
 function App() {
   return (
     <AuthProvider>
       <ToastProvider>
-        <BrowserRouter>
-          <Navigation />
-        </BrowserRouter>
+        <ProfileProvider>
+          <BrowserRouter>
+            <Navigation />
+          </BrowserRouter>
+        </ProfileProvider>
       </ToastProvider>
     </AuthProvider>
   )

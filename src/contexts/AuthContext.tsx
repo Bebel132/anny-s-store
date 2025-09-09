@@ -12,16 +12,6 @@ export const AuthProvider = ({ children } : PropsWithChildren) => {
         setUserId(res.userID);
     }
 
-    const getUser = async () => {
-        const res = await authService.UserProfile();
-        return res;
-    }
-
-    const editUser = async (payload: any) => {
-        await authService.EditUser(payload);
-        getUser();
-    }
-
     const login = async (payload: any) => {
         await authService.LogIn(payload);
         setIsReady(true);
@@ -48,7 +38,7 @@ export const AuthProvider = ({ children } : PropsWithChildren) => {
     }
 
     return (
-        <AuthContext.Provider value={{ userId, getUserId, getUser, editUser, login, logout, signin, ready, setIsReady, checkAuth}}>
+        <AuthContext.Provider value={{ userId, getUserId, login, logout, signin, ready, setIsReady, checkAuth}}>
             {children}
         </AuthContext.Provider>
     );

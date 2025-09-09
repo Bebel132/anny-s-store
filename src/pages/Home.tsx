@@ -151,7 +151,7 @@ const Home = () => {
           </div>
 
           <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 justify-center items-center w-full">
-            {loading ? <p>Loading...</p> : products.map((product) => (
+            {loading ? <p>carregando...</p> : products.map((product) => (
               <div key={product.Id} className="w-full m-auto duration-150 p-3 rounded hover:-translate-y-1 hover:shadow-xl">
                 <div
                   className={`w-full xl:h-[250px] md:h-[300px] h-[230px] bg-cover bg-position-[center_top_-2rem] rounded-xl`}

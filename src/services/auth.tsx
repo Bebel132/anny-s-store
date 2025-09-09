@@ -11,8 +11,4 @@ export const authService = {
         api.get("/manage/info").then(res => res.data),
     UserId: () =>
         api.get("/me").then(res => res.data),
-    UserProfile: () =>
-        api.get("/api/User").then(res => res.data),
-    EditUser: (payload: any) =>
-        api.put("/api/User", payload).then(res => res.data)
 }
