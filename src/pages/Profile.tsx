@@ -27,7 +27,13 @@ const Profile = () => {
     setLoading(true)
 
     const userData = await getUser();
-    setProfilePic(await getProfilePic())
+    
+    try {
+      setProfilePic(await getProfilePic())
+    } catch {
+      setProfilePic("")
+    }
+    
 
     setUser(userData);
     setLoading(false)

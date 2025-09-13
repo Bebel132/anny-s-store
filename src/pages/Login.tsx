@@ -12,21 +12,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     checkAuth();
     if (ready) {
       navigate(pagesMap.home);
     }
+    setLoading(false);
   });
 
   const onSubmit = async (data: any) => {
+    setLoading(true);
     try {
-      setLoading(true);
       await login(data);
-      setLoading(false);
     } catch (error) {
       alert("Usuário ou senha inválidos");
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   return (
